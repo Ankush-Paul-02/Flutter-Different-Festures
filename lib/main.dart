@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'Features/google_map_marker.dart';
+import 'Features/flutter_search.dart';
 
 void main() {
-  runApp(const Core());
+  runApp(const Core()); //? For Map
+  // runApp(const MyApp());
 }
 
 class Core extends StatelessWidget {
@@ -12,7 +13,7 @@ class Core extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (context) => CustomMapNotifier(),
+      create: (context) => SearchNotifier(),
       builder: (context, child) {
         return const MyApp();
       },
@@ -32,7 +33,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const GoogleMapMarker(),
+      home: const FlutterSearch(),
     );
   }
 }
